@@ -5,6 +5,7 @@ using namespace std;
 
 int main() {
     //Lectura del .csv
+    List listaP;
     lectura l;
-    l.lect();
+    listaP = l.lect();
 }

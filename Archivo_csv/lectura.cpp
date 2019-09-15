@@ -8,7 +8,7 @@ using namespace std;
 
 class lectura{
 public:
-    void lect() {
+    List lect() {
         ifstream lectura;
         lectura.open("/home/yenus/CLionProjects/TecFlix/movie_metadata.csv");
         cout << "va bien" << endl;
@@ -144,6 +144,7 @@ public:
                 }
             }
         }
-        L.print();}
+        L.print();
+    return L;}
 };
 
