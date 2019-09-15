@@ -2,5 +2,10 @@ cmake_minimum_required(VERSION 3.14)
 project(TecFlix)
 
 set(CMAKE_CXX_STANDARD 14)
-
+set(SOURCE_FILES main.cpp)
+find_package(Qt5Widgets REQUIRED)
+find_package( Qt5Core REQUIRED )
+find_package( Qt5Gui REQUIRED )
 add_executable(TecFlix main.cpp)
+target_link_libraries(TecFlix Qt5::Widgets Qt5::Core Qt5::Gui )
+qt5_use_modules( TecFlix Core Widgets Gui )
