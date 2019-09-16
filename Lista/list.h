@@ -40,6 +40,7 @@ class List
         void print();
         void del_head();
         void obt_by_position(int pos);
+        int cant();
 
     private:
         Node* m_head;

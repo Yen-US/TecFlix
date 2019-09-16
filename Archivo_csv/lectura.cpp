@@ -11,7 +11,7 @@ public:
     List lect() {
         ifstream lectura;
         lectura.open("/home/yenus/CLionProjects/TecFlix/movie_metadata.csv");
-        cout << "va bien" << endl;
+        //cout << "va bien" << endl;
         string linea;
         List L;
         for (int fila = 0; getline(lectura, linea); ++fila) {
@@ -135,7 +135,7 @@ public:
                         case 27: //movie_facebook_likes
                             P.setLikesFacePeli(dato);
                             //cout << dato + " :likes facebook pelicula" << endl;
-                            cout << "\n" << endl;
+                            //cout << "\n" << endl;
                             //P.print(P);
                             L.add_head(P);
                             break;
@@ -144,7 +144,7 @@ public:
                 }
             }
         }
-        L.print();
+        //L.print();
     return L;}
 };
 

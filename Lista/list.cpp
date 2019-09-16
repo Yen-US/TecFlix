@@ -55,7 +55,9 @@ void List::obt_by_position(int pos) {
     }
 
 }
-
+int List::cant() {
+    return m_num_nodes;
+}
 void List::print() {
     Node *temp = m_head;
         if (!m_head) {
