@@ -1,5 +1,5 @@
 //Basado en: https://stackoverflow.com/questions/36702888/download-an-image-from-an-url-using-curl-in-c
-#include <stdio.h>
+#include <cstdio>
 #include <curl/curl.h>
 #include <string>
 size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void* userdata)

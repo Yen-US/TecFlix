@@ -39,7 +39,7 @@ class List
         void add_head(Pelicula p);
         void print();
         void del_head();
-        void obt_by_position(int pos);
+        Pelicula obt_by_position(int pos);
         int cant();
 
     private:

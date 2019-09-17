@@ -6,6 +6,7 @@
 #define TECFLIX_LEERIMDB_H
 
 #include <string>
+using namespace std;
 /**
  * A non-threadsafe simple libcURL-easy based HTTP downloader
  */
@@ -20,6 +21,7 @@ public:
      */
     std::string download(const std::string& url);
     string getImageURL(string data);
+    string getTrailerURL(string data);
 private:
     void* curl;
 };

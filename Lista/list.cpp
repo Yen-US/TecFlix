@@ -43,12 +43,12 @@ void List::del_head(){
 
 
 // Obtener por posición del nodo
-void List::obt_by_position(int pos) {
+Pelicula List::obt_by_position(int pos) {
     Node *temp = m_head;
 
     for(int i; i<=m_num_nodes; i++){
         if (i==pos){
-            temp->print(temp->data);
+            return temp->data;
         }else{
             temp=temp->next;
         }
