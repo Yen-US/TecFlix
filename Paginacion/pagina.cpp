@@ -1,5 +1,5 @@
 // Created by yenus on 15/9/19.
-#include "/home/yenus/CLionProjects/TecFlix/Lista/list.h"
+
 class Pagina{
     int cantidadPel;
     int cantidadPag=12;

@@ -1,19 +1,5 @@
-#include "Clases/pelicula.cpp"
-#include "Archivo_csv/lectura.cpp"
 #include "Grafica/ventana.cpp"
-#include "Paginacion/pagina.cpp"
-#include "DesdeIMdB/leerIMdB.cpp"
-#include "DesdeIMdB/descarga.cpp"
 #include <QApplication>
-#include <QDebug>
-#include <QPushButton>
-#include <QLabel>
-#include <QFont>
-#include <QWidget>
-#include <QtWidgets>
-#include <QIcon>
-#include <QApplication>
-
 
 using namespace std;
 

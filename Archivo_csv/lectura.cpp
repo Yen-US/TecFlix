@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "/home/yenus/CLionProjects/TecFlix/Lista/list.cpp"
 
 
 using namespace std;

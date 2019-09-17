@@ -1,13 +1,14 @@
-#include <QPushButton>
-#include <QWidget>
-#include <QtWidgets>
-#include "/home/yenus/CLionProjects/TecFlix/DesdeIMdB/leerIMdB.h"
-#include "/home/yenus/CLionProjects/TecFlix/DesdeIMdB/descarga.cpp"
-#include "/home/yenus/CLionProjects/TecFlix/main.cpp"
-
-
 //Basado en: http://acodigo.blogspot.com/2017/08/qt-tutorial-de-introduccion.html
 
+
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets>
+#include "../DesdeIMdB/leerIMdB.h"
+#include "../Lista/list.h"
+#include "../DesdeIMdB/descarga.cpp"
+#include "../Archivo_csv/lectura.cpp"
+#include "../Paginacion/pagina.cpp"
 
 class Ventana : public QWidget
 {
@@ -102,7 +103,7 @@ Ventana::Ventana(QWidget *parent) : QWidget(parent)
 
 void Ventana::wheelEvent(QWheelEvent *event) {
     //eliminar archivo = remove(char* nombre)==0
-/*
+
     List *ptoList = (List *)malloc(sizeof(L));
     *ptoList=L;
     Pagina p(cantPel,*ptoList);
@@ -127,6 +128,6 @@ void Ventana::wheelEvent(QWheelEvent *event) {
 
         }
     }
-*/
+
 
 }

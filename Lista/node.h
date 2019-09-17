@@ -2,10 +2,7 @@
 #define NODE_H
 
 #include <iostream>
-
-
-using namespace std;
-
+#include "../Clases/pelicula.h"
 
 class Node
 {

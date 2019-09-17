@@ -43,7 +43,7 @@ bool download_jpeg(string url, int cont)
         return false;
     }
 
-    long res_code = 0;
+    int res_code = 0;
     curl_easy_getinfo(curlCtx, CURLINFO_RESPONSE_CODE, &res_code);
     if (!((res_code == 200 || res_code == 201) && rc != CURLE_ABORTED_BY_CALLBACK))
     {
