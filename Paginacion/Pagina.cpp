@@ -4,15 +4,50 @@
 
 #include "Pagina.h"
 
-List Pagina::newpag(int nump, int totp, List pelis) {
-    List * L = new(List);
-    for (int i=0; i<pelPPagina;i++){
+List Pagina::newpag(int nump, List pelis) {
+    *numPagina=nump;
+    *pelisG=pelis;
 
-        L->add_head(pelis.obt_by_position(((nump-1)*pelPPagina)+i+1));
+    for (int i=0; i<cantPag;i++){
+
+        pActL->add_head(pelisG->obt_by_position(((*numPagina-1)*cantPag)+i+1));
     }
-    return * L;
+    return * pActL;
 }
 
-int Pagina::getcantPag() {
-    return pelPPagina;
+List Pagina::pagant() {
+
+    for (int i=0; i<cantPag;i++){
+
+        pAntL->add_head(pelisG->obt_by_position(((*numPagina-2)*cantPag)+i+1));
+    }
+
+    return * pAntL;
 }
+
+List Pagina::pagsig() {
+    for (int i=0; i<cantPag;i++){
+
+        pSigL->add_head(pelisG->obt_by_position(((*numPagina)*cantPag)+i+1));
+    }
+
+    return * pSigL;
+}
+
+int Pagina::getCantPag() {
+    return cantPag;
+}
+
+int Pagina::getPagTotales() const {
+    return pagTotales;
+}
+
+void Pagina::setPagTotales(int pagTotales) {
+    Pagina::pagTotales = pagTotales;
+}
+
+void Pagina::setCantPag(int cantPag) {
+    Pagina::cantPag = cantPag;
+}
+
+

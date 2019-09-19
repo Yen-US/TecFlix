@@ -1,5 +1,5 @@
 
-#include <stdio.h>
+#include <cstdio>
 #include <curl/curl.h>
 #include <string>
 
@@ -41,21 +41,20 @@ string HTTPDownloader::getImageURL(string data)
 {
     string urltemp;
     string url;
-    urltemp=data.substr(data.find("<link rel='image_src' href=",0)+28);
-    url=urltemp.substr(0,urltemp.find(".jpg",0)+4);
-
+    urltemp=data.substr(data.find("<link rel='image_src' href=")+28);
+    url=urltemp.substr(0,urltemp.find(".jpg")+4);
     return url;
+
+
 }
 
 string HTTPDownloader::getTrailerURL(string data)
 {
     string urltemp;
     string url;
-    urltemp=data.substr(data.find("<a href=\"/video",0)+9);
-    url=urltemp.substr(0,urltemp.find("\"",0));
+    urltemp=data.substr(data.find("<a href=\"/video")+9);
+    url=urltemp.substr(0,urltemp.find("\""));
     url="https://www.imdb.com"+url;
 
     return url;
 }
-//www.imdb.com/video/imdb/vi531039513?playlistId=tt0499549&ref_=tt_ov_vi
-//www.imdb.com/video/imdb/vi531039513?playlistId=tt0499549&ref_=tt_ov_vi

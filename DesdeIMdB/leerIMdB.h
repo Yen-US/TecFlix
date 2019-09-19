@@ -24,5 +24,7 @@ public:
     string getTrailerURL(string data);
 private:
     void* curl;
+
+
 };
 #endif  /* HTTPDOWNLOADER_HPP */

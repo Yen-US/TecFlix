@@ -20,8 +20,23 @@ public:
             if (fila == 0) {}
             else {
                 Pelicula P;
-
+                int temp=0;
+                string tempstr="";
                 for (int columna = 0; getline(Linea, dato, ','); ++columna) {
+                    if (dato.front()=='"'||temp>0){
+                        if (temp>0){
+                            tempstr=tempstr+","+dato;
+                            temp+=1;
+                            columna--;
+                            if(dato.back()=='"') {
+                                dato = tempstr;
+                                temp=0;
+                            }
+                        }else{
+                                tempstr=dato;
+                                temp+=1;
+                        }
+                    }
                     switch (columna) {
                         case 0: // color
                             P.setColor(dato);

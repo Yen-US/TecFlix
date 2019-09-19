@@ -10,13 +10,23 @@
 
 class Pagina {
 protected:
-    int numPagina = 0;
-    int totPaginas = 0;
-    int pelPPagina = 12;
+    int *numPagina = new int(0);
+    int cantPag = 12;
+    int pagTotales = 0;
+    List* pActL = new(List);
+    List* pAntL = new(List);
+    List* pSigL = new(List);
+    List* pelisG = new(List);
+
 
 public:
-    List newpag(int nump, int totp, List pelis);
-    int getcantPag ();
+    List newpag(int nump, List pelis);
+    List pagant();
+    List pagsig();
+    int getCantPag ();
+    int getPagTotales() const;
+    void setPagTotales(int pagTotales);
+    void setCantPag(int cantPag);
 };
 
 

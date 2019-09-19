@@ -18,10 +18,10 @@ size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void* userdata)
 class jpeg{
 public:
 
-bool download_jpeg(string url, int cont)
+bool download_jpeg(string rutaL, string url, int cont)
 {
     string str = to_string(cont);
-    string ruta="/home/yenus/CLionProjects/TecFlix/pst"+str+".jpg";
+    string ruta = rutaL+str+".jpg";
 
     FILE* fp = fopen(ruta.c_str(), "wb");
     if (!fp)

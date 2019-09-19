@@ -13,7 +13,7 @@
 class Ventana : public QWidget
 {
 public:
-    Ventana(QWidget *parent = 0);
+    explicit Ventana(QWidget *parent = nullptr);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -31,15 +31,24 @@ private:
     QPushButton* btn10;
     QPushButton* btn11;
     QPushButton* btn12;
-    int pActual=400;
+    int *pActual= new int (2);
     lectura l;
     jpeg j;
     HTTPDownloader http;
+    Pagina p;
+    int *cantPPag=new int (12);
+    List L = l.lect();
+    int *pelTot=new int (L.cant());
+    int *pagTot=new int ((*pelTot/ *cantPPag)-1);
+    string* rutaA=new string("/home/yenus/CLionProjects/TecFlix/pstA");
+    string* rutaB=new string("/home/yenus/CLionProjects/TecFlix/pstB");
+    string* ruta=new string("/home/yenus/CLionProjects/TecFlix/pst");
+    void psig();
+    void pant();
 
-    string ruta="/home/yenus/CLionProjects/TecFlix/pst.jpg";
 
-    bool eventFilter(QObject *object, QEvent *event);
-
+    bool eventFilter(QObject *object, QEvent *event) override;
+    void actPenPant(string ruta);
 };
 
 Ventana::Ventana(QWidget *parent) : QWidget(parent)
@@ -108,6 +117,16 @@ Ventana::Ventana(QWidget *parent) : QWidget(parent)
     btn12->installEventFilter(this);
     btn12->setGeometry(4*dist+3*x, dist*3+y*2+50, x, y);
     connect(btn12, &QPushButton::clicked, this, &QWidget::close);
+    p.setCantPag(*cantPPag);
+    p.setPagTotales(*pelTot);
+    for (int i = 0; i < p.getCantPag(); i++) {
+        List pagActL = p.newpag(*pActual, L);
+        string data = http.download(pagActL.obt_by_position(i).getImdb());
+        //cout<<data<<endl;
+        j.download_jpeg(*ruta, http.getImageURL(data), i);
+    }
+    actPenPant(*ruta);
+    psig();
 
     /*QLabel* lbl = new QLabel(this);
     lbl->setGeometry(130, 10, 800, 30);
@@ -116,91 +135,25 @@ Ventana::Ventana(QWidget *parent) : QWidget(parent)
 }
 bool Ventana::eventFilter(QObject *object, QEvent *event) {
     if (event->type() == QEvent::KeyPress) {
-        List L = l.lect();
-        int cantPel = L.cant();
-        Pagina p;
-        bool ejecutando = false;
-        string ruta;
-        QKeyEvent *key_event = static_cast<QKeyEvent *>(event);
+
+        auto *key_event = dynamic_cast<QKeyEvent *>(event);
         if (key_event->key() == Qt::Key_Down) {
-            if (pActual == 0) {}
+            if (*pActual == 0) {}
             else {
-                List pagActL = p.newpag(pActual, cantPel, L);
-                for (int i = 0; i < p.getcantPag(); i++) {
-                    string data = http.download(pagActL.obt_by_position(i).getImdb());
-
-                    j.download_jpeg(http.getImageURL(data), i);
-
-                    string str = to_string(i);
-
-                    ruta = "/home/yenus/CLionProjects/TecFlix/pst" + str + ".jpg";
-
-                    QPixmap pix1(ruta.c_str());
-                    QPixmap pix = pix1.scaled(182, 268, Qt::IgnoreAspectRatio);
-
-                    QIcon ButtonIcon(pix);
-                    switch (i + 1) {
-                        case 1:
-                            btn1->setIcon(ButtonIcon);
-                            btn1->setIconSize(btn1->rect().size());
-                            break;
-                        case 2:
-                            btn2->setIcon(ButtonIcon);
-                            btn2->setIconSize(btn1->rect().size());
-                            break;
-                        case 3:
-                            btn3->setIcon(ButtonIcon);
-                            btn3->setIconSize(btn1->rect().size());
-                            break;
-                        case 4:
-                            btn4->setIcon(ButtonIcon);
-                            btn4->setIconSize(btn1->rect().size());
-                            break;
-                        case 5:
-                            btn5->setIcon(ButtonIcon);
-                            btn5->setIconSize(pix.rect().size());
-                            break;
-                        case 6:
-                            btn6->setIcon(ButtonIcon);
-                            btn6->setIconSize(pix.rect().size());
-                            break;
-                        case 7:
-                            btn7->setIcon(ButtonIcon);
-                            btn7->setIconSize(pix.rect().size());
-                            break;
-                        case 8:
-                            btn8->setIcon(ButtonIcon);
-                            btn8->setIconSize(pix.rect().size());
-                            break;
-                        case 9:
-                            btn9->setIcon(ButtonIcon);
-                            btn9->setIconSize(pix.rect().size());
-                            break;
-                        case 10:
-                            btn10->setIcon(ButtonIcon);
-                            btn10->setIconSize(pix.rect().size());
-                            break;
-                        case 11:
-                            btn11->setIcon(ButtonIcon);
-                            btn11->setIconSize(pix.rect().size());
-                            break;
-                        case 12:
-                            btn12->setIcon(ButtonIcon);
-                            btn12->setIconSize(pix.rect().size());
-                            break;
-                        default:
-                            cout << "error" << endl;
-                            break;
-                    }
-
-                    remove(ruta.c_str());
-
-                }
-
+                *pActual-=1;
+                actPenPant(*rutaA);
+                pant();
+                psig();
             }
 
         }else if (key_event->key() == Qt::Key_Up){
-
+            if (*pActual == *pagTot) {}
+            else {
+                *pActual+=1;
+                actPenPant(*rutaB);
+                pant();
+                psig();
+            }
         }
     } else {
         // standard event processing
@@ -208,6 +161,98 @@ bool Ventana::eventFilter(QObject *object, QEvent *event) {
     }
 }
 
+void Ventana::keyPressEvent(QKeyEvent *event) {
+    QWidget::keyPressEvent(event);
+}
 
+void Ventana::actPenPant(string rutaAct) {
+    //pagActL.print();
+    List pagActL = p.newpag(*pActual, L);
+    for (int i = 0; i < p.getCantPag(); i++) {
+        string str = to_string(i);
+        string rutaL = rutaAct + str + ".jpg";
 
+        QPixmap pix1(rutaL.c_str());
+        QPixmap pix = pix1.scaled(182, 268, Qt::IgnoreAspectRatio);
 
+        QIcon ButtonIcon(pix);
+        switch (i + 1) {
+            case 1:
+                btn1->setIcon(ButtonIcon);
+                btn1->setIconSize(btn1->rect().size());
+                break;
+            case 2:
+                btn2->setIcon(ButtonIcon);
+                btn2->setIconSize(btn1->rect().size());
+                break;
+            case 3:
+                btn3->setIcon(ButtonIcon);
+                btn3->setIconSize(btn1->rect().size());
+                break;
+            case 4:
+                btn4->setIcon(ButtonIcon);
+                btn4->setIconSize(btn1->rect().size());
+                break;
+            case 5:
+                btn5->setIcon(ButtonIcon);
+                btn5->setIconSize(pix.rect().size());
+                break;
+            case 6:
+                btn6->setIcon(ButtonIcon);
+                btn6->setIconSize(pix.rect().size());
+                break;
+            case 7:
+                btn7->setIcon(ButtonIcon);
+                btn7->setIconSize(pix.rect().size());
+                break;
+            case 8:
+                btn8->setIcon(ButtonIcon);
+                btn8->setIconSize(pix.rect().size());
+                break;
+            case 9:
+                btn9->setIcon(ButtonIcon);
+                btn9->setIconSize(pix.rect().size());
+                break;
+            case 10:
+                btn10->setIcon(ButtonIcon);
+                btn10->setIconSize(pix.rect().size());
+                break;
+            case 11:
+                btn11->setIcon(ButtonIcon);
+                btn11->setIconSize(pix.rect().size());
+                break;
+            case 12:
+                btn12->setIcon(ButtonIcon);
+                btn12->setIconSize(pix.rect().size());
+                break;
+            default:
+                cout << "error" << endl;
+                break;
+        }
+        remove(rutaL.c_str());
+        qApp->processEvents();
+    }
+
+}
+
+void Ventana::pant() {
+    List pagAntL = p.pagant();
+    //pagAntL.print();
+    for (int i = 0; i < p.getCantPag(); i++) {
+        string data = http.download(pagAntL.obt_by_position(i).getImdb());
+        j.download_jpeg(*rutaA, http.getImageURL(data), i);
+        string str = to_string(i);
+        string rutaL = *rutaA + str + ".jpg";
+    }
+}
+
+void Ventana::psig() {
+    List pagSigL = p.pagsig();
+    //pagAntL.print();
+    for (int i = 0; i < p.getCantPag(); i++) {
+        string data = http.download(pagSigL.obt_by_position(i).getImdb());
+        j.download_jpeg(*rutaB, http.getImageURL(data), i);
+        string str = to_string(i);
+        string rutaL = *rutaB + str + ".jpg";
+    }
+}
