@@ -8,7 +8,7 @@ set(SOURCE_FILES main.cpp)
 find_package(Qt5Widgets REQUIRED)
 find_package( Qt5Core REQUIRED )
 find_package( Qt5Gui REQUIRED )
-add_executable(TecFlix main.cpp Clases/pelicula.cpp Clases/pelicula.h Lista/list.cpp Lista/list.h Lista/node.cpp Lista/node.h DesdeIMdB/leerIMdB.cpp DesdeIMdB/leerIMdB.h)
+add_executable(TecFlix main.cpp Clases/pelicula.cpp Clases/pelicula.h Lista/list.cpp Lista/list.h Lista/node.cpp Lista/node.h DesdeIMdB/leerIMdB.cpp DesdeIMdB/leerIMdB.h Paginacion/Pagina.cpp Paginacion/Pagina.h)
 target_link_libraries(TecFlix Qt5::Widgets Qt5::Core Qt5::Gui )
 
 target_link_libraries(TecFlix curl)

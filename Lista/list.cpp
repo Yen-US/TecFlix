@@ -46,7 +46,7 @@ void List::del_head(){
 Pelicula List::obt_by_position(int pos) {
     Node *temp = m_head;
 
-    for(int i; i<=m_num_nodes; i++){
+    for(int i=0; i<=m_num_nodes; i++){
         if (i==pos){
             return temp->data;
         }else{
