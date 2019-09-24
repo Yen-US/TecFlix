@@ -11,34 +11,34 @@ using namespace std;
 
 class Pelicula {
 protected:
-    string color;
-    string nombre_del_director;
+    string color;//
+    string nombre_del_director;//
     string num_criticas_por_rev;
-    string duracion;
+    string duracion;//
     string likes_face_director;
     string likes_face_act3;
-    string nombre_act2;
+    string nombre_act2;//
     string likes_face_act1;
-    string ganancia;
-    string genero;
-    string nombre_act1;
-    string titulo;
+    string ganancia;//
+    string genero;//
+    string nombre_act1;//
+    string titulo;//
     string usuarios_votaron;
     string likes_face_cast;
-    string nombre_act3;
+    string nombre_act3;//
     string caras_poster;
     string palabras_busqueda;
-    string IMDB;
+    string IMDB;//
     string usuarios_rev;
-    string idioma;
-    string pais;
-    string contenido;
-    string presupuesto;
-    string agno;
+    string idioma;//
+    string pais;//
+    string contenido;//
+    string presupuesto;//
+    string agno;//
     string likes_face_act2;
-    string imdb_score;
-    string aspecto;
-    string likes_face_peli;
+    string imdb_score;//
+    string aspecto;//
+    string likes_face_peli;//
 public:
     const string &getColor() const;
 
