@@ -10,28 +10,39 @@ List Pagina::newpag(int nump, List pelis) {
 
     for (int i=0; i<cantPag;i++){
 
-        pActL->add_head(pelisG->obt_by_position(((*numPagina-1)*cantPag)+i+1));
+        pActL->add_head(pelisG->obt_by_position(((*numPagina-1)*cantPag)+i));
     }
     return * pActL;
 }
 
 List Pagina::pagant() {
+    if (*numPagina > 1){
+        for (int i = 0; i < cantPag; i++) {
 
-    for (int i=0; i<cantPag;i++){
+            pAntL->add_head(pelisG->obt_by_position(((*numPagina - 2) * cantPag) + i ));
+        }
 
-        pAntL->add_head(pelisG->obt_by_position(((*numPagina-2)*cantPag)+i+1));
+        return *pAntL;
     }
+    else if (*numPagina == 1){
+        for (int i = 0; i < cantPag; i++) {
 
-    return * pAntL;
+            pAntL->add_head(pelisG->obt_by_position(0+ i));
+        }
+
+        return *pAntL;
+    }
 }
 
 List Pagina::pagsig() {
+    if (*numPagina<cantPag*pagTotales){
     for (int i=0; i<cantPag;i++){
 
-        pSigL->add_head(pelisG->obt_by_position(((*numPagina)*cantPag)+i+1));
+        pSigL->add_head(pelisG->obt_by_position(((*numPagina)*cantPag)+i));
     }
 
     return * pSigL;
+}
 }
 
 int Pagina::getCantPag() {

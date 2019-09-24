@@ -1,7 +1,9 @@
-//Basado en: https://stackoverflow.com/questions/36702888/download-an-image-from-an-url-using-curl-in-c
-#include <cstdio>
-#include <curl/curl.h>
-#include <string>
+//
+// Created by yenus on 23/9/19.
+//
+
+#include "descarga.h"
+
 size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void* userdata)
 {
     FILE* stream = (FILE*)userdata;
@@ -15,14 +17,10 @@ size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void* userdata)
     return written;
 }
 
-class jpeg{
-public:
-
-bool download_jpeg(string rutaL, string url, int cont)
+bool descarga::download_jpeg(string ruta,string url, int i)
 {
-    string str = to_string(cont);
-    string ruta = rutaL+str+".jpg";
-
+    string str = to_string(i);
+    ruta=ruta+str+".jpg";
     FILE* fp = fopen(ruta.c_str(), "wb");
     if (!fp)
     {
@@ -55,6 +53,5 @@ bool download_jpeg(string rutaL, string url, int cont)
 
     fclose(fp);
 
-    return fp;
+    return true;
 }
-};

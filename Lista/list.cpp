@@ -69,7 +69,6 @@ void List::print() {
                 temp = temp->next;
             }
         }
-        //cout << endl << endl;
     }
 
 

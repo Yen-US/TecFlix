@@ -6,6 +6,11 @@
 #define TECFLIX_LEERIMDB_H
 
 #include <string>
+#include <cstdio>
+#include <curl/curl.h>
+#include <curl/easy.h>
+#include <string>
+
 using namespace std;
 /**
  * A non-threadsafe simple libcURL-easy based HTTP downloader
@@ -26,5 +31,8 @@ private:
     void* curl;
 
 
+    bool download_jpeg(string rutaL, string url, int cont);
+
+    size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void *userdata);
 };
 #endif  /* HTTPDOWNLOADER_HPP */

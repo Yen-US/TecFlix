@@ -1,4 +1,4 @@
-#include "Grafica/ventana.cpp"
+#include "Grafica/ventana.h"
 #include <QApplication>
 
 using namespace std;
@@ -7,9 +7,8 @@ int main(int argc, char *argv[]) {
     //Interfaz
     QApplication app(argc, argv);
     Ventana ventana;
-    ventana.resize(778, 894);
-    ventana.setWindowTitle("TecFlix");
-    ventana.show();
+    Ventana2 ventana2;
+
 
     return app.exec();
 }
