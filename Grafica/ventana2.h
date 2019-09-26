@@ -8,13 +8,15 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLabel>
+#include <QtGui/QDesktopServices>
+#include <QUrl>
 #include "../Clases/pelicula.h"
 
 class Ventana2: public QMainWindow {
 public:
     Ventana2(QWidget *parent=0);
+    void infoPeli(Pelicula peli,string link);
     virtual ~Ventana2();
-    void infoAct(Pelicula peli);
 private:
     QLabel* lblTitulo;
     QPushButton* lblLink;
@@ -31,6 +33,9 @@ private:
     QLabel* lblPresupuesto;
     QLabel* lblGanancia;
     QLabel* lblColor;
+    int handleLink();
+    string* link = new string("");
+
 
 };
 

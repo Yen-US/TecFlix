@@ -165,6 +165,7 @@ void Ventana::actPenPant(string rutaAct) {
     qApp->processEvents();
 
 }
+
 /**Metodo pant, realiza la descarga del html, busca en el mismo el url de la imagen y la descarga en
  * una ruta especificada para la pagia anterior, lo hace pidiendo a la clase paginación la lista de
  * peliculas correspondiente a la pagina anterior.
@@ -212,6 +213,7 @@ int Ventana::handleSig() {
     }
     return 0;
 }
+
 /**
  * Metodo handleAnt() se encarga de manejar el evento de el boton de pagina anterior restando 1 a la variable
  * pActual la que se encarga de indicar la pagina actual, asimismo llama a los metodos pant()
@@ -230,90 +232,115 @@ int Ventana::handleAnt() {
     }
     return 0;
 }
+
 /**
  * Metodo handleBtn1()
  *
  */
 int Ventana::handleBtn1() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(0);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn2() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(1);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn3() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(2);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn4() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(3);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn5() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(4);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn6() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(5);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn7() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(6);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn8() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(7);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn9() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(8);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn10() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(9);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn11() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(10);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
 
 int Ventana::handleBtn12() {
-
+    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
+    Pelicula peliAct=lAct->obt_by_position(11);
+    ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }

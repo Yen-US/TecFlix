@@ -3,6 +3,7 @@
 //
 
 
+
 #include "ventana2.h"
 
 Ventana2::Ventana2(QWidget *parent) {
@@ -17,6 +18,7 @@ Ventana2::Ventana2(QWidget *parent) {
     lblLink = new QPushButton("Link del Trailer", this);
     lblLink->setGeometry(10, 40, 369, 25);
     lblLink->setFont(QFont("Calibri", 10,25));
+    connect(lblLink,&QPushButton::clicked, this, &Ventana2::handleLink);
 
     lblGenero = new QLabel(this);
     lblGenero->setGeometry(10, 70, 369, 25);
@@ -83,19 +85,34 @@ Ventana2::Ventana2(QWidget *parent) {
     lblScore->setFont(QFont("Calibri", 10,25));
     lblScore->setText("Score de IMdB de la pelicula");
 
+}
 
+void Ventana2::infoPeli(Pelicula peli,string nlink) {
+    lblTitulo->setText(peli.getTitulo().c_str());
+    lblGenero->setText(("Genero: " + peli.getGenero()).c_str());
+    lblIdioma->setText(("Idioma: " + peli.getIdioma()).c_str());
+    lblDuracion->setText(("Duracion: " + peli.getDuracion()).c_str());
+    lblAgno->setText(("Año: "+ peli.getAgno()).c_str());
+    lblPais->setText(("Pais: "+ peli.getPais()).c_str());
+    lblContenido->setText(("Contenido: "+ peli.getContenido()).c_str());
+    lblPresupuesto->setText(("Presupuesto: "+ peli.getPresupuesto()).c_str());
+    lblGanancia->setText(("Ganancia: "+ peli.getGanancia()).c_str());
+    lblDirector->setText(("Director: "+ peli.getNombreDelDirector()).c_str());
+    lblColor->setText(("Color: "+ peli.getColor()).c_str());
+    lblAct1->setText(("Actor #1: "+ peli.getNombreAct1()).c_str());
+    lblAct2->setText(("Actor #2: "+ peli.getNombreAct2()).c_str());
+    lblScore->setText(("Score: "+ peli.getImdbScore()).c_str());
+    *link = nlink;
+}
 
-
-
-
-
-
-
+int Ventana2::handleLink() {
+    QString Link = link->c_str();
+    QDesktopServices::openUrl(QUrl(Link));
+    return 0;
 }
 
 Ventana2::~Ventana2() {
 }
 
-void Ventana2::infoAct(Pelicula peli) {
 
-}
+

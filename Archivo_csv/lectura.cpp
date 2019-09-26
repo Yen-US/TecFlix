@@ -29,11 +29,11 @@ public:
                             temp+=1;
                             columna--;
                             if(dato.back()=='"') {
-                                dato = tempstr;
+                                dato = tempstr.substr(0,tempstr.size()-1);
                                 temp=0;
                             }
                         }else{
-                                tempstr=dato;
+                                tempstr=dato.substr(1);
                                 temp+=1;
                         }
                     }

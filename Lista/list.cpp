@@ -23,12 +23,10 @@ void List::add_head(Pelicula data_)
     if (!m_head) {
         m_head = new_node;
     } else {
-        new_node->next = m_head;
-        m_head = new_node;
-
-        while (temp) {
+        while (temp->next != NULL) {
             temp = temp->next;
         }
+        temp->next = new_node;
     }
     m_num_nodes++;
 }
