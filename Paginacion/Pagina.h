@@ -10,12 +10,9 @@
 
 class Pagina {
 protected:
-    int *numPagina =new int;
+    int *numPagina =new int(0);
     int cantPag = 12;
     int pagTotales = 5000;
-    List* pActL = new(List);
-    List* pAntL = new(List);
-    List* pSigL = new(List);
     List* pelisG = new(List);
 
 

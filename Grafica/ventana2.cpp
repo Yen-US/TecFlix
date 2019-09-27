@@ -7,9 +7,8 @@
 #include "ventana2.h"
 
 Ventana2::Ventana2(QWidget *parent) {
-    this->resize(389, 460);
+    this->setFixedSize(389, 460);
     this->setWindowTitle("TecFlix");
-
     lblTitulo = new QLabel(this);
     lblTitulo->setGeometry(10, 5, 369, 25);
     lblTitulo->setFont(QFont("Calibri", 12,75));

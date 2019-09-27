@@ -5,19 +5,10 @@
 #include "ventana.h"
 #include <QCoreApplication>
 
-/**
- * Constructor de la ventana, en el cual se definen los botones y otros Widgets presentes
- * en la ventana principal, ademas de un pequeño if que ayuda a definir las imagenes
- * en la primera hoja de ejecucion, es decir la primera hoja que se muestra al ejecutar por
- * primera vez el programa
- * Basado en: http://acodigo.blogspot.com/2017/08/qt-tutorial-de-introduccion.html
- */
+
 
 Ventana::Ventana(QWidget *parent) : QMainWindow(parent)
 {
-    const int dist =10;
-    const int x= 182;
-    const int y= 268;
     this->resize(778, 894);
     this->setWindowTitle("TecFlix");
 
@@ -77,27 +68,68 @@ Ventana::Ventana(QWidget *parent) : QMainWindow(parent)
     btnSig->setGeometry(723, 5, 50, 20);
     connect(btnSig, &QPushButton::clicked, this, &Ventana::handleSig);
 
-    if (*Pini==0) {
+    btnAtras = new QPushButton("⇠", this);
+    btnAtras->setGeometry(65, 5, 20, 20);
+    connect(btnAtras, &QPushButton::clicked, this, &Ventana::handleAtras);
+
+    btnDel = new QPushButton("⇢", this);
+    btnDel->setGeometry(440, 5, 20, 20);
+    connect(btnDel, &QPushButton::clicked, this, &Ventana::handleDel);
+
+    btnN1 = new QPushButton("0", this);
+    btnN1->setGeometry(90, 5, 30, 20);
+    btnN1->setFont(QFont("Ubuntu", 11,75));
+    connect(btnN1, &QPushButton::clicked, this, &Ventana::handleN1);
+
+    btnN2 = new QPushButton("1", this);
+    btnN2->setGeometry(125, 5, 30, 20);
+    connect(btnN2, &QPushButton::clicked, this, &Ventana::handleN2);
+
+    btnN3 = new QPushButton("2", this);
+    btnN3->setGeometry(160, 5, 30, 20);
+    connect(btnN3, &QPushButton::clicked, this, &Ventana::handleN3);
+
+    btnN4 = new QPushButton("3", this);
+    btnN4->setGeometry(195, 5, 30, 20);
+    connect(btnN4, &QPushButton::clicked, this, &Ventana::handleN4);
+
+    btnN5 = new QPushButton("4", this);
+    btnN5->setGeometry(230, 5, 30, 20);
+    connect(btnN5, &QPushButton::clicked, this, &Ventana::handleN5);
+
+    btnN6 = new QPushButton("5", this);
+    btnN6->setGeometry(265, 5, 30, 20);
+    connect(btnN6, &QPushButton::clicked, this, &Ventana::handleN6);
+
+    btnN7 = new QPushButton("6", this);
+    btnN7->setGeometry(300, 5, 30, 20);
+    connect(btnN7, &QPushButton::clicked, this, &Ventana::handleN7);
+
+    btnN8 = new QPushButton("7", this);
+    btnN8->setGeometry(335, 5, 30, 20);
+    connect(btnN8, &QPushButton::clicked, this, &Ventana::handleN8);
+
+    btnN9 = new QPushButton("8", this);
+    btnN9->setGeometry(370, 5, 30, 20);
+    connect(btnN9, &QPushButton::clicked, this, &Ventana::handleN9);
+
+    btnN10 = new QPushButton("9", this);
+    btnN10->setGeometry(405, 5, 30, 20);
+    connect(btnN10, &QPushButton::clicked, this, &Ventana::handleN10);
+
+    if (Pini==0) {
         p.setPagTotales(*pagTot);
         p.setCantPag(*cantPPag);
-        *lAct=p.newpag(*pActual,L);
-        pant();
+        pact();
+        actPenPant(*ruta);
         psig();
-        actPenPant(*rutaA);
-        *Pini=2;
+        Pini=2;
     }
 this->show();
 }
-/**
- * actPenPant es un metodo que se basa en actualizar los poster de cada uno de los botones por medio de
- * un pixmap, el cual es definido por la ruta recibida y un contador que define la pelicula en el irden en
- * que se recibio
- * @param rutaAct recibe la ruta actual utilizada la cual puede ser rutaA o rutaB dependiendo si se esta
- * migrando a la pagina anterior o siguiente de la que estaba antes en pantalla
- */
+
 
 void Ventana::actPenPant(string rutaAct) {
-    //pagActL.print();
 
     *lAct=p.newpag(*pActual, L);
     for (int i = 0; i < p.getCantPag(); i++) {
@@ -161,15 +193,15 @@ void Ventana::actPenPant(string rutaAct) {
                 cout << "error" << endl;
                 break;
         }
+        remove(rutaL.c_str());
     }
+    actNav(2);
     qApp->processEvents();
+
 
 }
 
-/**Metodo pant, realiza la descarga del html, busca en el mismo el url de la imagen y la descarga en
- * una ruta especificada para la pagia anterior, lo hace pidiendo a la clase paginación la lista de
- * peliculas correspondiente a la pagina anterior.
- */
+
 void Ventana::pant() {
     List pagAntL = p.pagant();
     for (int i = 0; i < p.getCantPag(); i++) {
@@ -177,13 +209,12 @@ void Ventana::pant() {
         d.download_jpeg(*rutaA, http.getImageURL(data), i);
         string str = to_string(i);
         string rutaL = *rutaA + str + ".jpg";
+
     }
+    cout<<"Lista pAnt"<<endl;
 }
 
-/**Metodo pant, realiza la descarga del html, busca en el mismo el url de la imagen y la descarga en
- * una ruta especificada para la pagia siguiente, lo hace pidiendo a la clase paginación la lista de
- * peliculas correspondiente a la pagina siguiente.
- */
+
 void Ventana::psig() {
     List pagSigL = p.pagsig();
     for (int i = 0; i < p.getCantPag(); i++) {
@@ -191,44 +222,51 @@ void Ventana::psig() {
         d.download_jpeg(*rutaB, http.getImageURL(data), i);
         string str = to_string(i);
         string rutaL = *rutaB + str + ".jpg";
+
     }
+    cout<<"Listo pSig"<<endl;
 }
 
-/**
- * Metodo handleSig se encarga de manejar el evento de el boton de pagina siguiente sumando 1 a la variable
- * pActual la que se encarga de indicar la pagina actual, asimismo llama a los metodos pant()
- * y psig() para que ellos actualicen las imagenes anteriores y siguientes, tambien llama al metodo
- * actPenPant() para que actualice la pantalla con los posters de la pagina actual
- */
+void Ventana::pact() {
+    List pagActL = p.newpag(*pActual, L);
+    for (int i = 0; i < p.getCantPag(); i++) {
+        string data = http.download(pagActL.obt_by_position(i).getImdb());
+        d.download_jpeg(*ruta, http.getImageURL(data), i);
+        string str = to_string(i);
+        string rutaL = *ruta + str + ".jpg";
+
+    }
+    cout<<"Listo pAct"<<endl;
+}
+
+
 int Ventana::handleSig() {
-    if (*pActual == *pagTot * *cantPPag) {}
-    else {
+    if (*pActual<*pagTot) {
         *pActual += 1;
         cout << "Pagina: " << *pActual << endl;
         actPenPant(*rutaB);
         pant();
         psig();
-        cout<<"Listo"<<endl;
-
-    }
-    return 0;
+        return 0;
+    }else{}
 }
 
-/**
- * Metodo handleAnt() se encarga de manejar el evento de el boton de pagina anterior restando 1 a la variable
- * pActual la que se encarga de indicar la pagina actual, asimismo llama a los metodos pant()
- * y psig() para que ellos actualicen las imagenes anteriores y siguientes, tambien llama al metodo
- * actPenPant() para que actualice la pantalla con los posters de la pagina actual
- */
+
 int Ventana::handleAnt() {
-    if (*pActual == 1) {}
+    if (*pActual == 0) {}
+    else if(*pActual == 1){
+        *pActual -= 1;
+        cout << "Pagina: " << *pActual << endl;
+        actPenPant(*rutaA);
+        psig();
+
+    }
     else {
         *pActual -= 1;
         cout << "Pagina: " << *pActual << endl;
         actPenPant(*rutaA);
         pant();
         psig();
-        cout<<"Lista"<<endl;
     }
     return 0;
 }
@@ -238,7 +276,6 @@ int Ventana::handleAnt() {
  *
  */
 int Ventana::handleBtn1() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(0);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -247,7 +284,6 @@ int Ventana::handleBtn1() {
 }
 
 int Ventana::handleBtn2() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(1);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -256,7 +292,6 @@ int Ventana::handleBtn2() {
 }
 
 int Ventana::handleBtn3() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(2);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -265,7 +300,6 @@ int Ventana::handleBtn3() {
 }
 
 int Ventana::handleBtn4() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(3);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -274,7 +308,6 @@ int Ventana::handleBtn4() {
 }
 
 int Ventana::handleBtn5() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(4);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -283,7 +316,6 @@ int Ventana::handleBtn5() {
 }
 
 int Ventana::handleBtn6() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(5);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -292,7 +324,6 @@ int Ventana::handleBtn6() {
 }
 
 int Ventana::handleBtn7() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(6);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -301,7 +332,6 @@ int Ventana::handleBtn7() {
 }
 
 int Ventana::handleBtn8() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(7);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -310,7 +340,6 @@ int Ventana::handleBtn8() {
 }
 
 int Ventana::handleBtn9() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(8);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -319,7 +348,6 @@ int Ventana::handleBtn9() {
 }
 
 int Ventana::handleBtn10() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(9);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -328,7 +356,6 @@ int Ventana::handleBtn10() {
 }
 
 int Ventana::handleBtn11() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(10);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
@@ -337,17 +364,191 @@ int Ventana::handleBtn11() {
 }
 
 int Ventana::handleBtn12() {
-    *lAct=p.newpag(*pActual, L);
     ventana2=new Ventana2();
     Pelicula peliAct=lAct->obt_by_position(11);
     ventana2->infoPeli(peliAct,http.getTrailerURL(http.download(peliAct.getImdb())));
     ventana2->show();
     return 0;
 }
-/**
- * Destructor ~Ventana como su nombre describe, libera de memoria todos los punteros presentes y creados
- * en la Clase Ventana
- */
+
+int Ventana::handleN1() {
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN2() {
+    *pActual=*pActual+1;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN3() {
+    *pActual=*pActual+2;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN4() {
+    *pActual=*pActual+3;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN5() {
+    *pActual=*pActual+4;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN6() {
+    *pActual=*pActual+5;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN7() {
+    *pActual=*pActual+6;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN8() {
+    *pActual=*pActual+7;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN9() {
+    *pActual=*pActual+8;
+    actNav(1);
+    return 0;
+}
+
+int Ventana::handleN10() {
+    *pActual=*pActual+9;
+    actNav(1);
+    return 0;
+}
+
+void Ventana::actNav(int cont){
+    btnN1->setText(to_string(*pActual).c_str());
+    btnN1->setFont(QFont("Ubuntu", 11, 75));
+
+    btnN2->setText(to_string(*pActual + 1).c_str());
+
+    btnN3->setText(to_string(*pActual + 2).c_str());
+
+    btnN4->setText(to_string(*pActual + 3).c_str());
+
+    btnN5->setText(to_string(*pActual + 4).c_str());
+
+    btnN6->setText(to_string(*pActual + 5).c_str());
+
+    btnN7->setText(to_string(*pActual + 6).c_str());
+
+    btnN8->setText(to_string(*pActual + 7).c_str());
+
+    btnN9->setText(to_string(*pActual + 8).c_str());
+
+    btnN10->setText(to_string(*pActual + 9).c_str());
+    if (cont==1){
+        pact();
+        actPenPant(*ruta);
+        pant();
+        psig();
+    }else{}
+
+}
+
+int Ventana::handleDel() {
+    if (*pActual<*pagTot-19) {
+        *pActual = *pActual + 10;
+        btnN1->setText(to_string(*pActual).c_str());
+        btnN1->setFont(QFont("Ubuntu", 11, 50));
+
+        btnN2->setText(to_string(*pActual + 1).c_str());
+
+        btnN3->setText(to_string(*pActual + 2).c_str());
+
+        btnN4->setText(to_string(*pActual + 3).c_str());
+
+        btnN5->setText(to_string(*pActual + 4).c_str());
+
+        btnN6->setText(to_string(*pActual + 5).c_str());
+
+        btnN7->setText(to_string(*pActual + 6).c_str());
+
+        btnN8->setText(to_string(*pActual + 7).c_str());
+
+        btnN9->setText(to_string(*pActual + 8).c_str());
+
+        btnN10->setText(to_string(*pActual + 9).c_str());
+    }else{}
+    return 0;
+}
+
+int Ventana::handleAtras() {
+    if (*pActual>9) {
+        *pActual = *pActual - 10;
+        btnN1->setText(to_string(*pActual).c_str());
+        btnN1->setFont(QFont("Ubuntu", 11, 50));
+
+        btnN2->setText(to_string(*pActual + 1).c_str());
+
+        btnN3->setText(to_string(*pActual + 2).c_str());
+
+        btnN4->setText(to_string(*pActual + 3).c_str());
+
+        btnN5->setText(to_string(*pActual + 4).c_str());
+
+        btnN6->setText(to_string(*pActual + 5).c_str());
+
+        btnN7->setText(to_string(*pActual + 6).c_str());
+
+        btnN8->setText(to_string(*pActual + 7).c_str());
+
+        btnN9->setText(to_string(*pActual + 8).c_str());
+
+        btnN10->setText(to_string(*pActual + 9).c_str());
+    }else{}
+    return 0;
+}
+
+void Ventana::resizeEvent(QResizeEvent* event){
+    int width =event->size().width();
+    int height =event->size().height();
+
+    if (width<=(10*dist+10*x)){
+        //diez pelis horizontal
+    }else if (width<=(10*dist+10*x) && width>(9*dist+9*x)){
+        //nueve pelis horizontal
+    }else if (width<=(9*dist+9*x) && width>(8*dist+8*x)){
+        //ocho pelis horizontal
+    }else if (width<=(8*dist+8*x) && width>(7*dist+7*x)){
+        //siete pelis horizontal
+    }else if (width<=(7*dist+7*x) && width>(6*dist+6*x)){
+        //seis pelis horizontal
+    }else if (width<=(6*dist+6*x) && width>(5*dist+5*x)){
+        //cinco pelis horizontal
+    }else if (width<=(5*dist+5*x) && width>(4*dist+4*x)){
+        //Cuatro pelis horizontal
+    }else if (width<=(4*dist+4*x) && width>(3*dist+3*x)){
+        //tres pelis horizontal
+    }else if (width<=(3*dist+3*x) && width>(2*dist+2*x)){
+        //dos pelis horizontal
+    }else if (width<=(2*dist+2*x) && width>(1*dist+1*x)){
+        //una peli horizontal
+    }
+
+    if (height<=947 && height>dist*3+y*3+50){
+        //tres pelis vertical
+    }else if (height<=dist*3+y*3+50 && height>dist*2+y*2+50){
+        //dos pelis vertical
+    }else if (height<=dist*2+y*2+50 && height>dist*1+y*1+50){
+        //una peli vertical
+    }
+}
+
 Ventana::~Ventana() {
     delete(btn1);
     delete(btn2);
@@ -369,9 +570,6 @@ Ventana::~Ventana() {
     delete(pagTot);
     delete(rutaA);
     delete(rutaB);
-    delete(Pini);
     delete(ventana2);
     delete(lAct);
 }
-
-

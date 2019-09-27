@@ -5,44 +5,42 @@
 #include "Pagina.h"
 
 List Pagina::newpag(int nump, List pelis) {
-    *numPagina=nump;
-    *pelisG=pelis;
+    *numPagina = nump;
+    *pelisG = pelis;
+    List pActL;
 
-    for (int i=0; i<cantPag;i++){
-
-        pActL->add_head(pelisG->obt_by_position(((*numPagina-1)*cantPag)+i));
+    for (int i = 0; i < cantPag; i++) {
+        pActL.add_head(pelisG->obt_by_position((*numPagina * cantPag) + i));
     }
-    return * pActL;
+    return pActL;
+
 }
-
 List Pagina::pagant() {
-    if (*numPagina > 1){
+
+    List pAntL;
+    if (*numPagina >= 1){
         for (int i = 0; i < cantPag; i++) {
 
-            pAntL->add_head(pelisG->obt_by_position(((*numPagina - 2) * cantPag) + i ));
+            pAntL.add_head(pelisG->obt_by_position(((*numPagina - 1) * cantPag) + i ));
         }
 
-        return *pAntL;
+        return pAntL;
     }
-    else if (*numPagina == 1){
-        for (int i = 0; i < cantPag; i++) {
-
-            pAntL->add_head(pelisG->obt_by_position(0+ i));
-        }
-
-        return *pAntL;
+    else if (*numPagina == 0){
+        return pAntL;
     }
 }
 
 List Pagina::pagsig() {
+
+    List pSigL;
     if (*numPagina<cantPag*pagTotales){
-    for (int i=0; i<cantPag;i++){
+        for (int i=0; i<cantPag;i++){
 
-        pSigL->add_head(pelisG->obt_by_position(((*numPagina)*cantPag)+i));
+            pSigL.add_head(pelisG->obt_by_position(((*numPagina+1)*cantPag)+i));
+        }
+        return pSigL;
     }
-
-    return * pSigL;
-}
 }
 
 int Pagina::getCantPag() {
