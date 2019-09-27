@@ -9,7 +9,7 @@
 
 Ventana::Ventana(QWidget *parent) : QMainWindow(parent)
 {
-    this->resize(778, 894);
+    this->setFixedSize(778, 894);
     this->setWindowTitle("TecFlix");
 
     btn1 = new QPushButton("", this);
@@ -518,7 +518,7 @@ void Ventana::resizeEvent(QResizeEvent* event){
     int width =event->size().width();
     int height =event->size().height();
 
-    if (width<=(10*dist+10*x)){
+    if (width==(10*dist+10*x)){
         //diez pelis horizontal
     }else if (width<=(10*dist+10*x) && width>(9*dist+9*x)){
         //nueve pelis horizontal

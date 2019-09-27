@@ -37,6 +37,9 @@ public:
 
 
 private:
+    /**
+     * Definición de todos los botones a utilizar en la ventana
+     */
     QPushButton* btn1;
     QPushButton* btn2;
     QPushButton* btn3;
@@ -49,7 +52,6 @@ private:
     QPushButton* btn10;
     QPushButton* btn11;
     QPushButton* btn12;
-
     QPushButton* btnN1;
     QPushButton* btnN2;
     QPushButton* btnN3;
@@ -60,7 +62,6 @@ private:
     QPushButton* btnN8;
     QPushButton* btnN9;
     QPushButton* btnN10;
-
     QPushButton* btnAtras;
     QPushButton* btnDel;
 
@@ -92,7 +93,9 @@ private:
  * actPenPant() para que actualice la pantalla con los posters de la pagina actual
  */
     int handleAnt();
-
+/**
+ * metodos que manejan los botones de navegación, se encargan de llamar el metodo actNav(intcont)
+ */
     int handleN1();
     int handleN2();
     int handleN3();
@@ -103,7 +106,12 @@ private:
     int handleN8();
     int handleN9();
     int handleN10();
-
+/**
+ * metodo que recibe la llamada para actualizar los botones cuando un usuario acciono un boton de
+ * navegación y actualiza los botones con los numeros correspondientes en base a la nueva pagina
+ * y ademas actualiza las peliculas en pantalla con base en la pagina escogida por el usuario
+ * @param cont
+ */
     void actNav(int cont);
 
     int handleAtras();
