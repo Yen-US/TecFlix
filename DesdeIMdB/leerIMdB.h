@@ -5,34 +5,40 @@
 #ifndef TECFLIX_LEERIMDB_H
 #define TECFLIX_LEERIMDB_H
 
-#include <string>
 #include <cstdio>
 #include <curl/curl.h>
 #include <curl/easy.h>
 #include <string>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 /**
- * A non-threadsafe simple libcURL-easy based HTTP downloader
+ * @brief Un descargador HTTP basado en libcURL simple y no seguro para subprocesos Basado en: http://www.cplusplus.com/forum/beginner/92733/
  */
 class HTTPDownloader {
 public:
     HTTPDownloader();
     ~HTTPDownloader();
     /**
-     * Download a file using HTTP GET and store in in a std::string
-     * @param url The URL to download
-     * @return The download result
+     * Descarga un archivo usando HTTP GET y lo guarda en un std :: string
+     * @param url el URL a descargar
+     * @return El redultado de la descarga
      */
     std::string download(const std::string& url);
+    /**
+     * @brief Toma todo el html y busca en el palabras clave para si encontrar el link de la imagen del poster
+     * @param data todo el html donde buscar la imagen
+     * @return el string donde esta almacenado el url del link de la imagen
+     */
     string getImageURL(string data);
+    /**
+     * @brief Toma todo el html y busca en el palabras clave para si encontrar el link del trailer de la pelicula
+     * @param data todo el html donde buscar el trailer
+     * @return el string donde esta almacenado el url del link del poster
+     */
     string getTrailerURL(string data);
 private:
     void* curl;
-
-
-    bool download_jpeg(string rutaL, string url, int cont);
-
-    size_t callbackfunction(void *ptr, size_t size, size_t nmemb, void *userdata);
 };
 #endif  /* HTTPDOWNLOADER_HPP */

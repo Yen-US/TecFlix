@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TecFlix: Fichero Fuente CLionProjects/TecFlix/Lista/list.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TecFlix
+   </div>
+   <div id="projectbrief">Aplicación para visualizar metadata y trailers de películas o series de televisión</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a class="el" href="dir_e6271542b5b9171f02bf46086c0dc39c.html">TecFlix</a></li><li class="navelem"><a class="el" href="dir_98b6ece2d7099668a6b0cef3cef9df79.html">Lista</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">list.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="list_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LIST_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LIST_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="node_8h.html">node.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classList.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classList.html">List</a></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="classList.html#a64d878a92d11f7c63c70cbe4e7dd4176">List</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classList.html#a70aecf37bd9d779a394e4d50377fbf5f">~List</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classList.html#a85dc7892ecf39bdd4c23cacae6f52248">add_head</a>(<a class="code" href="classPelicula.html">Pelicula</a> p);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classList.html#ac334b7866f8dd21f730442b2553df60f">print</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <a class="code" href="classPelicula.html">Pelicula</a> <a class="code" href="classList.html#ab7fd584253c9b614155bd7042ef3eff1">obt_by_position</a>(<span class="keywordtype">int</span> pos);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classList.html#a91ca5535938490e7e5011817022f67e7">cant</a>();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classNode.html">Node</a>* m_head;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">int</span> m_num_nodes;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif // LIST_H</span></div><div class="ttc" id="classList_html_ac334b7866f8dd21f730442b2553df60f"><div class="ttname"><a href="classList.html#ac334b7866f8dd21f730442b2553df60f">List::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Metodo para obtener una impresion en consola de la Lista. </div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00047">list.cpp:47</a></div></div>
+<div class="ttc" id="node_8h_html"><div class="ttname"><a href="node_8h.html">node.h</a></div></div>
+<div class="ttc" id="classNode_html"><div class="ttname"><a href="classNode.html">Node</a></div><div class="ttdoc">Clase Nodo, define los nodos pelicula. </div><div class="ttdef"><b>Definition:</b> <a href="node_8h_source.html#l00009">node.h:9</a></div></div>
+<div class="ttc" id="classPelicula_html"><div class="ttname"><a href="classPelicula.html">Pelicula</a></div><div class="ttdoc">Clase Pelicula, define las peliculas, las cuales son obtenidas del archivo.csv. </div><div class="ttdef"><b>Definition:</b> <a href="pelicula_8h_source.html#l00014">pelicula.h:14</a></div></div>
+<div class="ttc" id="classList_html_a64d878a92d11f7c63c70cbe4e7dd4176"><div class="ttname"><a href="classList.html#a64d878a92d11f7c63c70cbe4e7dd4176">List::List</a></div><div class="ttdeci">List()</div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00007">list.cpp:7</a></div></div>
+<div class="ttc" id="classList_html"><div class="ttname"><a href="classList.html">List</a></div><div class="ttdoc">Clase Lista, define la estructura de datos de lista enlazada en la cual se van a almacenar Peliculas...</div><div class="ttdef"><b>Definition:</b> <a href="list_8h_source.html#l00014">list.h:14</a></div></div>
+<div class="ttc" id="classList_html_a85dc7892ecf39bdd4c23cacae6f52248"><div class="ttname"><a href="classList.html#a85dc7892ecf39bdd4c23cacae6f52248">List::add_head</a></div><div class="ttdeci">void add_head(Pelicula p)</div><div class="ttdoc">Metodo para agregar Peliculas al final de la lista. </div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00014">list.cpp:14</a></div></div>
+<div class="ttc" id="classList_html_a91ca5535938490e7e5011817022f67e7"><div class="ttname"><a href="classList.html#a91ca5535938490e7e5011817022f67e7">List::cant</a></div><div class="ttdeci">int cant()</div><div class="ttdoc">metodo cant usado para obtener la cantidad total de nodos </div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00044">list.cpp:44</a></div></div>
+<div class="ttc" id="classList_html_ab7fd584253c9b614155bd7042ef3eff1"><div class="ttname"><a href="classList.html#ab7fd584253c9b614155bd7042ef3eff1">List::obt_by_position</a></div><div class="ttdeci">Pelicula obt_by_position(int pos)</div><div class="ttdoc">Metodo para obtener un Nodo por su posicion en la Lista. </div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00032">list.cpp:32</a></div></div>
+<div class="ttc" id="classList_html_a70aecf37bd9d779a394e4d50377fbf5f"><div class="ttname"><a href="classList.html#a70aecf37bd9d779a394e4d50377fbf5f">List::~List</a></div><div class="ttdeci">~List()</div><div class="ttdef"><b>Definition:</b> <a href="list_8cpp_source.html#l00061">list.cpp:61</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,13 +1,5 @@
-
-#include <cstdio>
-#include <curl/curl.h>
-#include <string>
-
 #include "leerIMdB.h"
-#include <curl/easy.h>
-#include <sstream>
-#include <iostream>
-using namespace std;
+
 size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream) {
     string data((const char*) ptr, (size_t) size * nmemb);
     *((stringstream*) stream) << data << endl;

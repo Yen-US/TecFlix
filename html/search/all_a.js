@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['pact',['pact',['../classVentana.html#a8364338a20750f6b74d4716bef5a7ad9',1,'Ventana']]],
+  ['pagant',['pagant',['../classPagina.html#ae641b2ee4991d8f9d60a33409b883926',1,'Pagina']]],
+  ['pagina',['Pagina',['../classPagina.html',1,'']]],
+  ['pagina_2ecpp',['Pagina.cpp',['../Pagina_8cpp.html',1,'']]],
+  ['pagina_2eh',['Pagina.h',['../Pagina_8h.html',1,'']]],
+  ['pagsig',['pagsig',['../classPagina.html#ab0f9db1ceaaee83b3a751c7e73c133a9',1,'Pagina']]],
+  ['pagtotales',['pagTotales',['../classPagina.html#aae9b5b63d24ace922e8a53435200d7c0',1,'Pagina']]],
+  ['pais',['pais',['../classPelicula.html#aeeb9a15a6f8da7ab549b22c87c7b8d96',1,'Pelicula']]],
+  ['palabras_5fbusqueda',['palabras_busqueda',['../classPelicula.html#a5c540ce18b48d150dad905d4f865eb54',1,'Pelicula']]],
+  ['pant',['pant',['../classVentana.html#a9324c0d02052698a0983c41f0622c39d',1,'Ventana']]],
+  ['pelicula',['Pelicula',['../classPelicula.html',1,'']]],
+  ['pelicula_2ecpp',['pelicula.cpp',['../pelicula_8cpp.html',1,'']]],
+  ['pelicula_2eh',['pelicula.h',['../pelicula_8h.html',1,'']]],
+  ['pelisg',['pelisG',['../classPagina.html#a6fbacac9fc478d16c7b2ebc037cb55ed',1,'Pagina']]],
+  ['presupuesto',['presupuesto',['../classPelicula.html#a203adfacc0792f35968bd023c5d6a330',1,'Pelicula']]],
+  ['print',['print',['../classPelicula.html#aed21ee2c6286a8450eb05c351a2e7e60',1,'Pelicula::print()'],['../classList.html#ac334b7866f8dd21f730442b2553df60f',1,'List::print()'],['../classNode.html#a1be5112a92217308e1cacafcc6625fa8',1,'Node::print()']]],
+  ['psig',['psig',['../classVentana.html#a0f459fc82c93cce81b13e90acb6cb6b0',1,'Ventana']]]
+];

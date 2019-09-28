@@ -1,0 +1,11 @@
+digraph "CLionProjects/TecFlix/Paginacion" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e6271542b5b9171f02bf46086c0dc39c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="TecFlix" fontname="Helvetica", fontsize="10", URL="dir_e6271542b5b9171f02bf46086c0dc39c.html"]
+  dir_f6b5739164d2d525caafc3dd5c3bb147 [shape=box, label="Paginacion", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_f6b5739164d2d525caafc3dd5c3bb147.html"];
+  }
+  dir_98b6ece2d7099668a6b0cef3cef9df79 [shape=box label="Lista" URL="dir_98b6ece2d7099668a6b0cef3cef9df79.html"];
+  dir_f6b5739164d2d525caafc3dd5c3bb147->dir_98b6ece2d7099668a6b0cef3cef9df79 [headlabel="1", labeldistance=1.5 headhref="dir_000007_000006.html"];
+}

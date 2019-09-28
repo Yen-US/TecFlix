@@ -47,9 +47,6 @@ int Pagina::getCantPag() {
     return cantPag;
 }
 
-int Pagina::getPagTotales() const {
-    return pagTotales;
-}
 
 void Pagina::setPagTotales(int pagTotales) {
     Pagina::pagTotales = pagTotales;

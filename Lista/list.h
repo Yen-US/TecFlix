@@ -1,20 +1,3 @@
-/*
- * Copyright (C) 2009 Ronny Yabar Aizcorbe <ronnycontacto@gmail.com>
- *
- * This program is free software; you can redistribute it and/or modify it
- * under the terms and conditions of the GNU Lesser General Public License,
- * version 2.1, as published by the Free Software Foundation.
- *
- * This program is distributed in the hope it will be useful, but WITHOUT ANY
- * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
- * more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program; if not, write to the Free Software Foundation,
- * Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
- */
-
 #ifndef LIST_H
 #define LIST_H
 
@@ -25,17 +8,33 @@
 
 #include "node.h"
 
-
+/**
+ * @brief Clase Lista, define la estructura de datos de lista enlazada en la cual se van a almacenar Peliculas, Basado en: https://github.com/ronnyml/C-Tutorial-Series/tree/master/Listas_enlazadas
+ */
 class List
 {
     public:
         List();
         ~List();
-
+/**
+ * @brief Metodo para agregar Peliculas al final de la lista
+ * @param p Pelicula a Almacenar
+ */
         void add_head(Pelicula p);
+        /**
+         * @brief Metodo para obtener una impresion en consola de la Lista
+         */
         void print();
-        void del_head();
+        /**
+         * @brief Metodo para obtener un Nodo por su posicion en la Lista
+         * @param pos entero que indica la posicion
+         * @return La pelicula en tal posicion indicada
+         */
         Pelicula obt_by_position(int pos);
+        /**
+         * @brief metodo cant usado para obtener la cantidad total de nodos
+         * @return retorna la cantidad total de nodos en la lista
+         */
         int cant();
 
     private:

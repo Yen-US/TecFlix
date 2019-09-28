@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TecFlix: Fichero Fuente CLionProjects/TecFlix/Grafica/ventana2.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">TecFlix
+   </div>
+   <div id="projectbrief">Aplicación para visualizar metadata y trailers de películas o series de televisión</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a class="el" href="dir_e6271542b5b9171f02bf46086c0dc39c.html">TecFlix</a></li><li class="navelem"><a class="el" href="dir_f4c64af2dd5dfda14c0c672256777c08.html">Grafica</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ventana2.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="ventana2_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by yenus on 23/9/19.</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TECFLIX_VENTANA2_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TECFLIX_VENTANA2_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;QPushButton&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QLabel&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QtGui/QDesktopServices&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QUrl&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../Clases/pelicula.h&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classVentana2.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classVentana2.html">Ventana2</a>: <span class="keyword">public</span> QMainWindow {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classVentana2.html#a10125b792e60cbf8f297a5a1b035daf8">Ventana2</a>(QWidget *parent=0);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classVentana2.html#af853f68caec546b9804aa680f3527601">infoPeli</a>(<a class="code" href="classPelicula.html">Pelicula</a> peli,<span class="keywordtype">string</span> link);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classVentana2.html#a457216613100562538a1cd7aec267df1">~Ventana2</a>();</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    QLabel* lblTitulo;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    QPushButton* lblLink;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    QLabel* lblDuracion;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    QLabel* lblDirector;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    QLabel* lblGenero;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    QLabel* lblAct1;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    QLabel* lblAct2;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    QLabel* lblIdioma;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    QLabel* lblPais;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    QLabel* lblAgno;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    QLabel* lblScore;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    QLabel* lblContenido;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    QLabel* lblPresupuesto;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    QLabel* lblGanancia;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    QLabel* lblColor;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">string</span>* link = <span class="keyword">new</span> string(<span class="stringliteral">&quot;&quot;</span>);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">int</span> handleLink();</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif //TECFLIX_VENTANA2_H</span></div><div class="ttc" id="classVentana2_html_a10125b792e60cbf8f297a5a1b035daf8"><div class="ttname"><a href="classVentana2.html#a10125b792e60cbf8f297a5a1b035daf8">Ventana2::Ventana2</a></div><div class="ttdeci">Ventana2(QWidget *parent=0)</div><div class="ttdef"><b>Definition:</b> <a href="ventana2_8cpp_source.html#l00009">ventana2.cpp:9</a></div></div>
+<div class="ttc" id="classVentana2_html_af853f68caec546b9804aa680f3527601"><div class="ttname"><a href="classVentana2.html#af853f68caec546b9804aa680f3527601">Ventana2::infoPeli</a></div><div class="ttdeci">void infoPeli(Pelicula peli, string link)</div><div class="ttdef"><b>Definition:</b> <a href="ventana2_8cpp_source.html#l00089">ventana2.cpp:89</a></div></div>
+<div class="ttc" id="classVentana2_html_a457216613100562538a1cd7aec267df1"><div class="ttname"><a href="classVentana2.html#a457216613100562538a1cd7aec267df1">Ventana2::~Ventana2</a></div><div class="ttdeci">virtual ~Ventana2()</div><div class="ttdef"><b>Definition:</b> <a href="ventana2_8cpp_source.html#l00113">ventana2.cpp:113</a></div></div>
+<div class="ttc" id="classPelicula_html"><div class="ttname"><a href="classPelicula.html">Pelicula</a></div><div class="ttdoc">Clase Pelicula, define las peliculas, las cuales son obtenidas del archivo.csv. </div><div class="ttdef"><b>Definition:</b> <a href="pelicula_8h_source.html#l00014">pelicula.h:14</a></div></div>
+<div class="ttc" id="classVentana2_html"><div class="ttname"><a href="classVentana2.html">Ventana2</a></div><div class="ttdoc">Ventana2 encargada de presentar información de las peliculas junto a un link a su trailer...</div><div class="ttdef"><b>Definition:</b> <a href="ventana2_8h_source.html#l00017">ventana2.h:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

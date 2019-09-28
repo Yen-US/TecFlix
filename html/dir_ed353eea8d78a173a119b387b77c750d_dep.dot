@@ -1,0 +1,10 @@
+digraph "CLionProjects" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_ed353eea8d78a173a119b387b77c750d {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_ed353eea8d78a173a119b387b77c750d.html"];
+    dir_ed353eea8d78a173a119b387b77c750d [shape=plaintext label="CLionProjects"];
+    dir_e6271542b5b9171f02bf46086c0dc39c [shape=box label="TecFlix" color="red" fillcolor="white" style="filled" URL="dir_e6271542b5b9171f02bf46086c0dc39c.html"];
+  }
+}

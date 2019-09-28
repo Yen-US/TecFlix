@@ -1,7 +1,3 @@
-/**
- * Basado en: https://github.com/ronnyml/C-Tutorial-Series/tree/master/Listas_enlazadas
- */
-
 #include "list.h"
 
 using namespace std;
@@ -29,14 +25,6 @@ void List::add_head(Pelicula data_)
         temp->next = new_node;
     }
     m_num_nodes++;
-}
-
-// Eliminar al inicio
-void List::del_head(){
-        Node* aux1 = m_head;
-        m_head = m_head->next;
-        aux1->next = NULL;
-        m_num_nodes --;
 }
 
 

@@ -4,9 +4,16 @@
 
 
 using namespace std;
-
+/**
+ * @brief Clase lectura encargada de tomar el archivo .csv y retornar una lista con todos los
+ * objetos pelicula presentes en el con todo y atributos
+ */
 class lectura{
 public:
+    /**
+     * Unico metodo de lectura, lee el archivo .csv
+     * @return una Lista la cual será utilizada para manejar todos las peliculas
+     */
     List lect() {
         ifstream lectura;
         lectura.open("/home/yenus/CLionProjects/TecFlix/movie_metadata.csv");

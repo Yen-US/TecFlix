@@ -1,0 +1,11 @@
+digraph "CLionProjects/TecFlix/Lista" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e6271542b5b9171f02bf46086c0dc39c {
+    graph [ bgcolor="#ddddee", pencolor="black", label="TecFlix" fontname="Helvetica", fontsize="10", URL="dir_e6271542b5b9171f02bf46086c0dc39c.html"]
+  dir_98b6ece2d7099668a6b0cef3cef9df79 [shape=box, label="Lista", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_98b6ece2d7099668a6b0cef3cef9df79.html"];
+  }
+  dir_0cbfbed1e089dfe7e97ae5e130508a0f [shape=box label="Clases" URL="dir_0cbfbed1e089dfe7e97ae5e130508a0f.html"];
+  dir_98b6ece2d7099668a6b0cef3cef9df79->dir_0cbfbed1e089dfe7e97ae5e130508a0f [headlabel="1", labeldistance=1.5 headhref="dir_000006_000003.html"];
+}
